@@ -4,18 +4,18 @@
   "description": "progressive app that helps you get current currency and conversion rates.",
   "icons": [
     {
-      "src": "img/euro_logo3.png",
-      "sizes": "76x54",
+      "src": "img/48x48.png",
+      "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "img/euro_logo1.png",
-      "sizes": "170x120",
+      "src": "img/96x96.png",
+      "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "img/euro_logo.png",
-      "sizes": "1960x678",
+      "src": "img/257x257.png",
+      "sizes": "257x257",
       "type": "image/png"
     }
   ],
