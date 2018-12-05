@@ -6,8 +6,6 @@
 Google Web Fonts
 ================================================ */
 
-/* Montserrat */
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 /* Roboto */
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900,700italic,500italic,400italic,300italic,100italic);
 
@@ -38,4 +36,3 @@ Plugin Css
 
 /* Bootstrap Select */
 @import url('plugin/bootstrap-toggle/bootstrap-toggle.min.css');
-@import url('plugin/sweet-alert/sweet-alert.css');
