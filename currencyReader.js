@@ -62,7 +62,8 @@ function calculateRate() {
         converted = converted.toFixed(4);
         displayConvertion(converted, from, to, ammount);
     }).fail( function () {
-        console.log("error ***");
+        alert("Network Connection Failed");
+
     })
     }
 };
