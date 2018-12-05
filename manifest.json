@@ -1,0 +1,27 @@
+{
+  "name": "CurrencyMaid Progressive Web App",
+  "short_name": "CurrencyMaid",
+  "description": "progressive app that helps you get current currency and conversion rates.",
+  "icons": [
+    {
+      "src": "img/euro_logo3.png",
+      "sizes": "76x54",
+      "type": "image/png"
+    },
+    // ...
+    {
+      "src": "img/euro_logo1.png",
+      "sizes": "170x120",
+      "type": "image/png"
+    },
+    {
+      "src": "img/euro_logo.png",
+      "sizes": "1960x678",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/pwa-examples/js13kpwa/index.html",
+  "display": "fullscreen",
+  "theme_color": "#26a65b",
+  "background_color": "#26a65b"
+}

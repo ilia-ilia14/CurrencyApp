@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kode is a Premium Bootstrap Admin Template, It's responsive, clean coded and mobile friendly">
+  <meta name="keywords" content="currency, exchange, currency rates, money," />
+  <title>CurrencyMaid</title>
+
+  <!-- ========== Css Files ========== -->
+  <link href="css/root.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+      <style>
+        #cpBtn{
+          margin:auto;
+          padding: 2px 5px;
+          cursor: pointer;
+        }
+        #cp{
+          overflow: hidden;
+          margin: auto;
+          height: 0px;
+          width: 100%;
+          background: #fff;
+          transition: height 2s;
+          text-align: center;
+        }
+        h2 { text-align: center;}
+        ul {
+          list-style-type: none;
+        }
+      </style>
+    </head>
+
+    <script>
+        function toggleCP(){
+            var cp = document.getElementById("cp");
+            if(cp.style.height == "0px"){
+                cp.style.height = "150px";
+            } else {
+                cp.style.height = "0px";
+            }
+        }
+    </script>
+    <body>
+    <!-- Start Page Loading -->
+  <div class="loading"><img src="img/loading.gif" alt="loading-img"></div>
+  <!-- End Page Loading -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+  <!-- START TOP -->
+  <div id="top" class="clearfix">
+
+    <!-- Start App Logo -->
+    <div class="applogo">
+      <a href="index.html" class="logo">CurrencyMaid</a>
+    </div>
+    <!-- End App Logo -->
+
+    <!-- Start Sidebar Show Hide Button -->
+    <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+    <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+    <!-- End Sidebar Show Hide Button -->
+
+
+
+
+    <!-- Start Sidepanel Show-Hide Button -->
+    <a href="#sidepanel" class="sidepanel-open-button"><i class="fa fa-outdent"></i></a>
+    <!-- End Sidepanel Show-Hide Button -->
+
+    <!-- End Top Right -->
+
+  </div>
+  <!-- END TOP -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEBAR -->
+<div class="sidebar clearfix hidden">
+
+<ul class="sidebar-panel nav">
+  <li class="sidetitle">MAIN</li>
+  <li><a href="index.html"><span class="icon color5"><i class="fa fa-home"></i></span>Dashboard</a></li>
+  <li><a href="#"><span class="icon color11"><i class="fa fa-diamond"></i></span>Widgets<span class="label label-default">coming soon</span></a></li>
+
+</ul>
+
+<div class="sidebar-plan">
+  This is a Beta Version of the web page to know more about creator follow the <a href="#" class="link">link</a>
+</div>
+
+</div>
+<!-- END SIDEBAR -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content">
+
+  <!-- Start Page Header -->
+  <div class="page-header">
+    <h1 class="title">Dashboard</h1>
+      <ol class="breadcrumb">
+
+    </ol>
+
+
+    <!-- Start Page Header Right Div -->
+    <div class="right">
+      <div class="btn-group" role="group" aria-label="...">
+        <a href="index.html" class="btn btn-light"><i class="fa fa-refresh"></i></a>
+        <a href="#" class="btn btn-light" id="topstats"><i class="fa fa-line-chart"></i></a>
+      </div>
+    </div>
+    <!-- End Page Header Right Div -->
+
+  </div>
+  <!-- End Page Header -->
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTAINER -->
+<div class="container-widget">
+  <!-- Start Top Stats -->
+  <div class="col-md-12">
+
+
+
+
+  <ul class="topstats clearfix">
+      <div class="col-md-12">
+        <label class="col-sm-4 control-label form-label">Rates are quoted against the <b>U.S Dollar</b> </label>
+      </div>
+      <div id="currencies">
+
+      </div>
+  </ul>
+
+  </div>
+  <!-- End Top Stats -->
+
+  <!-- Start second Row -->
+  <div class="row " >
+
+
+    <!-- Start General Stats -->
+    <div class="col-md-12 col-lg-12">
+        <form id="conversion">
+      <div class="panel panel-widget" style="height:280px;">
+        <div class="panel-title">
+          Conversion Simulator
+        </div>
+        <div class="panel-body">
+
+          <div class="form-group">
+              <div class="col-sm-3 has-success">
+                  <input type="text" class="form-control" name="from" placeholder="USD or EUR or GBP" required>
+              </div>
+            <label class="col-sm-1 control-label form-label">From</label>
+
+
+            <div class="col-sm-2 has-success">
+              <input type="number" class="form-control" name="amount" placeholder="Ammount E.g 400" required>
+            </div>
+            <label class="col-sm-1 control-label form-label">To</label>
+              <div class="col-sm-3 has-success">
+                  <input type="text" class="form-control" name="to" placeholder="USD or EUR or GBP" required>
+              </div>
+              <label class=" control-label form-label"></label>
+              <div class="col-sm-1" data-toggle="modal" data-target="#convertionModal">
+                  <button  type="button" class="btn btn-success" onclick="calculateRate()" data-target="#myModal3">Calculate</button>
+              </div>
+
+          </div>
+
+        </div>
+          <div class="col-md-12">
+              <p></p>
+              <label class=" control-label form-label">This is just an estimator. Real number might depend on selling or buying. </label>
+          </div>
+      </div>
+        </form>
+
+    </div>
+
+    <!-- End General Stats -->
+  </div>
+  <!-- End Second Row -->
+
+  <!-- Start Modal Code -->
+  <!-- Modal -->
+  <div class="modal fade" id="convertionModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Conversion</h4>
+        </div>
+        <div class="modal-body" id="convAmount">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Moda Code -->
+
+
+  <!-- Start Third Row -->
+<row>
+  <div class="text-center" >
+    <img src="img/bitcoin.png" alt="img" id="cpBtn"   onclick="toggleCP()" style="width:100px;height:100px;" class="rounded mx-auto d-block" />
+  </div>
+
+  <ul class="clearfix" id="cp">
+    <div class="col-md-12">
+      <label class="control-label form-label">Rates are quoted in <b>U.S Dollar</b> </label>
+    </div>
+    <div id="coin">
+
+    </div>
+  </ul>
+
+
+  <div style="height: 120px;width:100%;"></div>
+</row>
+  <!-- End Third Row -->
+
+
+
+</div>
+<!-- END CONTAINER -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+<!-- Start Footer -->
+<div class="row footer">
+  <div class="col-md-6 text-left">
+  Copyright © 2018
+  </div>
+  <div class="col-md-6 text-right">
+    Design and Developed by <a href="#" target="_blank">Ilia Sidamonidze</a>
+  </div> 
+</div>
+<!-- End Footer -->
+
+
+</div>
+<!-- End Content -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEPANEL -->
+<div role="tabpanel" class="sidepanel">
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START SIDEBAR -->
+        <ul class="sidebar-panel nav">
+            <li class="sidetitle">Profile</li>
+          <li class="sidetitle">(This features are not available in Beta version)</li>
+            <li><a href="#"><i class="fa falist fa-wrench"></i> Settings</a></li>
+            <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+            <li><a href="#"><i class="fa falist fa fa-sign-in"></i> Login</a></li>
+
+        </ul>
+
+
+    <!-- END SIDEBAR -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+</div>
+<!-- END SIDEPANEL -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="js/plugins.js"></script>
+
+<!-- ================================================
+Bootstrap Select
+================================================ -->
+<script type="text/javascript" src="js/bootstrap-select/bootstrap-select.js"></script>
+
+<!-- ================================================
+Bootstrap Toggle
+================================================ -->
+<script type="text/javascript" src="js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
+<!-- ================================================
+
+
+<!-- ================================================
+jQuery UI
+================================================ -->
+<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
+
+
+  <script type="text/javascript" src="currencyReader.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          getCurrencyInfo("currencies");
+          getBitcoinInfo("coin");
+
+          //check if service worker is part of navigator
+          // and therefore implmented by the current browser
+          if ('serviceWorker' in navigator) {
+              //the service worker js file must always be on top level of the app
+              //to use service worker the site must run under https (expect localhost)
+              navigator.serviceWorker.register('sw1.js').then(function (reg) {
+                  console.log('Registration succeeded', reg);
+              }).catch(function (error) {
+                  console.log('Registration failed with ', error);
+              });
+          };
+
+      });
+
+  </script>
+
+</body>
+</html>
