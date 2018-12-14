@@ -387,6 +387,34 @@ b {
   padding: 12px 0
 }
 
+.topstats li {
+  display: block;
+  text-align: center;
+  margin: 10px 0
+}
+
+.topstats .title {
+  color: #37363e;
+  font-weight: 600;
+  font-size: 13px
+}
+
+.topstats .title .fa {
+  font-size: 15px;
+  color: #000;
+  margin-right: 4px;
+  opacity: 0.4
+}
+
+.topstats h3 {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Montserrat',sans-serif;
+  letter-spacing: -1px;
+  line-height: normal;
+  margin: 1px 0
+}
+
 a:focus,input,.btn:focus,.btn:active:focus {
   outline: 0px
 }
@@ -567,7 +595,6 @@ input {
   padding: 0;
   color: inherit;
   background-color: transparent;
-  border-color: none
 }
 
 .panel-widget {
