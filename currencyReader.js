@@ -15,30 +15,33 @@ function getCurrencyInfo (containerName) {
         const jpy = data.rates.JPY;
         const chf = data.rates.CHF; //swiss frank//
         const cny = data.rates.CNY; //chinese yen
-        addHtmlCurrencies(base, date, cad, gbp, usd, jpy, chf, cny);
+        var currencyArray = {cad:cad, gbp:gbp, usd:usd, jpy:jpy, chf:chf, cny:cny};
+        addHtmlCurrencies(base, date, currencyArray);
     }).fail(function () {
         console.log("CurrencyInfo error");
     });
-function addHtmlCurrencies(base, date, cad, gbp, usd, jpy, chf, cny) {
-    container.append(`<li class="col-xs-6 col-lg-2">
+
+    function addHtmlCurrencies(base, date, currencyArray) {
+        container.append(`<li class="col-xs-6 col-lg-2">
         <span class="title"><i class="fa fa-dollar"></i> Canadian Dollar</span>
-    <h3>${cad}</h3> 
+    <h3>${currencyArray['cad']}</h3> 
     <li class="col-xs-6 col-lg-2">
         <span class="title"><i class="fa fa-gbp"></i> British Pound</span>
-    <h3>${gbp}</h3> 
+    <h3>${currencyArray['gbp']}</h3> 
     <li class="col-xs-6 col-lg-2">
         <span class="title"><i class="fa fa-dollar"></i> U.S Dollar</span>
-    <h3>${usd}</h3> 
+    <h3>${currencyArray['usd']}</h3> 
     <li class="col-xs-6 col-lg-2">
         <span class="title"><i class="fa fa-jpy"></i> Japanise Yen</span>
-    <h3>${jpy}</h3> 
+    <h3>${currencyArray['jpy']}</h3> 
     <li class="col-xs-6 col-lg-2">
         <span class="title"><i class="fa fa-money"></i> Swiss Franc</span>
-    <h3>${chf}</h3> 
+    <h3>${currencyArray['chf']}</h3> 
     <li class="col-xs-6 col-lg-2">
         <span class="title"><i class="fa fa-cny"></i> Chinese Yen</span>
-    <h3>${cny}</h3> 
+    <h3>${currencyArray['cny']}</h3> 
 `);}
+
 }
 function calculateRate() {
     form = document.getElementById("conversion");
@@ -67,18 +70,28 @@ function calculateRate() {
     })
     }
 };
-
+var items = [];
 function displayConvertion(converted, from, to, ammount) {
 
 var container = $("#" + "convAmount");
+   // container.empty();
     var x = document.getElementById("convAmount").childElementCount;
     container.append(`<table class="table table-hover">
         <tbody>
         <tr>
-         <td><h4>${x+1}) ${ammount } ${from} will give you approximately ${converted} ${to}</h4></td>
+         <td><h4>${x}) ${ammount } ${from} will give you approximately ${converted} ${to}</h4></td>
         </tr>
         </tbody>
         </table>`);
+
+    if (typeof(Storage) !== "undefined") {
+        var item = ammount + " "+ from + " will give you approximately " + converted + " "+ to;
+         items.push(item);
+        var myStorage = window.localStorage;
+        myStorage.setItem("items", JSON.stringify(items));
+    }
+    console.log(JSON.parse(localStorage.getItem("items")));
+
 }
 
 
